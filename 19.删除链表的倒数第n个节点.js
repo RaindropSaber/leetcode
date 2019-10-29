@@ -23,19 +23,19 @@ var removeNthFromEnd = function(head, n) {
 	return k.next
 };
 
-// function ListNode(val) {
-// 	this.val = val;
-// 	this.next = null;
-// }
-// let a1 = new ListNode(1)
-// let a2 = new ListNode(2)
-// // let a3 = new ListNode(3)
-// // let a4 = new ListNode(4)
-// // let a5 = new ListNode(5)
+function ListNode(val) {
+	this.val = val;
+	this.next = null;
+}
+let a1 = new ListNode(1)
+let a2 = new ListNode(2)
+let a3 = new ListNode(3)
+// let a4 = new ListNode(4)
+// let a5 = new ListNode(5)
 
-// a1.next = a2
-// // a2.next = a3
-// // a3.next = a4
-// // a4.next = a5
-// let res = removeNthFromEnd(a1,1)
-// console.log(res)
+a1.next = a2
+a2.next = a3
+// a3.next = a4
+// a4.next = a5
+let res = removeNthFromEnd(a1,1)
+console.log(res)

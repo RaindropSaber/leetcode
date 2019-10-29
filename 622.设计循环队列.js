@@ -8,13 +8,11 @@
  * @param {number} k
  */
 var MyCircularQueue = function(k) {
+	this.dateBase = new Array(k)
+	this.head = 0
+	this.tail = 0
 	this.size = k
-	this.max = k
-	this.list = Array(k)
-
-	this.front = 0
-	this.rear = 0
-
+	this.length = 0
 };
 
 /**
@@ -23,12 +21,11 @@ var MyCircularQueue = function(k) {
  * @return {boolean}
  */
 MyCircularQueue.prototype.enQueue = function(value) {
-	if(this.isFull()){
-		return false
-	}else{
-		this.list[(this.rear+1)%this.max] = value
-		return true
-	}
+	if(this.isFull()) return false
+	this.dateBase[this.tail] = value
+	this.length++
+	this.tail = (this.tail+1)%this.size
+	return true
 };
 
 /**
@@ -36,7 +33,11 @@ MyCircularQueue.prototype.enQueue = function(value) {
  * @return {boolean}
  */
 MyCircularQueue.prototype.deQueue = function() {
-
+	if(this.isEmpty()) return false
+	this.dateBase[this.head] = null
+	this.length --
+	this.head = (this.head+1)%this.size
+	return true
 };
 
 /**
@@ -44,7 +45,8 @@ MyCircularQueue.prototype.deQueue = function() {
  * @return {number}
  */
 MyCircularQueue.prototype.Front = function() {
-	return this.isEmpty()?-1:this.list[this.front]
+	if(this.isEmpty())return -1
+	return this.dateBase[(this.head+this.size)%this.size]
 };
 
 /**
@@ -52,7 +54,8 @@ MyCircularQueue.prototype.Front = function() {
  * @return {number}
  */
 MyCircularQueue.prototype.Rear = function() {
-	return this.isEmpty()?-1:this.list[this.rear]
+	if(this.isEmpty())return -1
+	return this.dateBase[(this.tail+this.size-1)%this.size]
 };
 
 /**
@@ -60,7 +63,7 @@ MyCircularQueue.prototype.Rear = function() {
  * @return {boolean}
  */
 MyCircularQueue.prototype.isEmpty = function() {
-	return this.size === 0
+	return this.length === 0
 };
 
 /**
@@ -68,7 +71,7 @@ MyCircularQueue.prototype.isEmpty = function() {
  * @return {boolean}
  */
 MyCircularQueue.prototype.isFull = function() {
-	return this.size === this.max
+	return this.length === this.size
 };
 
 /**
@@ -81,4 +84,19 @@ MyCircularQueue.prototype.isFull = function() {
  * var param_5 = obj.isEmpty()
  * var param_6 = obj.isFull()
  */
+// let obj = new MyCircularQueue(3)
+// obj.enQueue(2)
+// obj.Rear()
+// obj.Front()
 
+
+
+// obj.enQueue(2)
+// obj.enQueue(3)
+// obj.enQueue(4)
+// console.log(obj)
+// obj.Rear()
+// obj.isFull()
+// obj.deQueue()
+// obj.enQueue(4)
+// obj.Rear()
