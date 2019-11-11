@@ -50,11 +50,9 @@ var numIslands = function(grid) {
 	// 	index++
 	// }
 	// return count
-	function bfs(x,y) {
-		grid[x][y] = '0'
 
-	}
 
+	//dfs
 	function dfs(x,y) {
 		grid[x][y] = '0'
 		grid[x+1] && grid[x+1][y]==='1' && dfs(x+1,y)

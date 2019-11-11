@@ -8,6 +8,7 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
+	return nums.reduce((acc,v)=>acc^v)
 	return Object.keys(nums.reduce((acc,v)=>{return acc[v]?delete acc[v]:acc[v]=true, acc},{}))[0]
 };
 

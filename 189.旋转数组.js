@@ -13,6 +13,6 @@ var rotate = function(nums, k) {
 	// nums=[...nums,...nums].slice(l-k,2*l-k)
 	nums.unshift(nums[l-1])
 	nums.splice(l,1)
-	console.log(nums)
+	// console.log(nums)
 };
 rotate([1,2,3,4,5,6,7,8])
