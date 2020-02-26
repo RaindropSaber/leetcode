@@ -39,17 +39,6 @@
  */
 var longestCommonPrefix = function(strs) {
 	if(!strs.length)return ''
-	// return strs.reduce((acc,a)=>{
-	// 	let com=''
-	// 	for(i=0,length=acc.length;i<length;i++){
-	// 		if(acc[i]===a[i]){
-	// 			com+=a[i]
-	// 		}else{
-	// 			break
-	// 		}
-	// 	}
-	// 	return com
-	// })
 	let a=strs[0]
 	let b=''
 	for (i=0,l1=a.length;i<l1;i++){
