@@ -14,4 +14,5 @@ var maxProfit = function(prices) {
 		return acc
 	},[Infinity,0])[1]
 };
-// let res =maxProfit([7,2,5,3,6,4,1,9])
+let res =maxProfit([7,1,5,3,6,4])
+console.log(res)

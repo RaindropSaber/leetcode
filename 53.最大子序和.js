@@ -39,8 +39,10 @@ var maxSubArray = function(nums) {
     // return max
     return nums.reduce((acc,v)=>{
         acc[0]=acc[0]<0?v:acc[0]+v
-        acc[1]=acc[1]>acc[0]?acc[1]:acc[0]
+		acc[1]=acc[1]>acc[0]?acc[1]:acc[0]
+		console.log(acc)
         return acc
     },[0,nums[0]])[1]
 
 };
+// maxSubArray([-2,-1,0,2,3,-6,8])

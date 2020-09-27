@@ -21,11 +21,13 @@ var numSquares = function(n) {
 			let on = q.shift()
 			for(let i=0;on-i*i>=0;i++){
 				let nn = on-i*i
+				console.log(nn)
 				if(nn === 0)return index
 				if(!s.has(nn)){
 					s.add(nn)
 					nq.push(nn)
 				}
+				// console.log(nq)
 			}
 		}
 		q = nq
@@ -39,7 +41,33 @@ var numSquares = function(n) {
 	// 	return a[i]
 	// })[n]
 
+	// let q = [n]
+
+	// while(q.length){
+	// 	let res = []
+	// 	let t = q.shift()
+	// 	for(let i = 1;t-i*i>0;i++){
+	// 		t = t-i*i
+	// 		if(t){
+	// 			q.push(t)
+	// 			res.push(t)
+	// 			console.log(res)
+	// 		}else{
+	// 			console.log(res)
+	// 			return res.length 
+	// 		}
+	// 	}
+	// }
+
+
+
+
+
 };
+
+
+
+
 // @lc code=end
 let N = 12
 let res = numSquares(N)
