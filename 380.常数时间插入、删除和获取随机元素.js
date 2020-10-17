@@ -9,8 +9,10 @@
  * Initialize your data structure here.
  */
 var RandomizedSet = function() {
-	this.map = {}
-	this.dateBase = []
+	// this.map = {}
+	// this.dateBase = []
+	this.map = new Map()
+	this.array = []
 };
 
 /**
@@ -19,10 +21,18 @@ var RandomizedSet = function() {
  * @return {boolean}
  */
 RandomizedSet.prototype.insert = function(val) {
-	if(this.map.hasOwnProperty(val))return false
-	this.dateBase.push(val)
-	this.map[val] = this.dateBase.length-1
-	return true
+	// if(this.map.hasOwnProperty(val))return false
+	// this.dateBase.push(val)
+	// this.map[val] = this.dateBase.length-1
+	// return true
+
+
+	if(!this.map.has(val)){
+		this.array.push(val)
+		this.map.set(val,this.array.length-1)
+		return true
+	}
+	return false
 };
 
 /**
@@ -31,19 +41,34 @@ RandomizedSet.prototype.insert = function(val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function(val) {
-	if(!this.map.hasOwnProperty(val))return false
-	let index = this.map[val]
-	let arr=this.dateBase;
-	let end = arr.length - 1
-	this.map[arr[end]] = this.map[val]
+	// if(!this.map.hasOwnProperty(val))return false
+	// let index = this.map[val]
+	// let arr=this.dateBase;
+	// let end = arr.length - 1
+	// this.map[arr[end]] = this.map[val]
 
-	temp = arr[end]
-	arr[end] = arr[index]
-	arr[index] = temp
+	// temp = arr[end]
+	// arr[end] = arr[index]
+	// arr[index] = temp
 
-	delete this.map[val]
-	arr.pop()
-	return true
+	// delete this.map[val]
+	// arr.pop()
+	// return true
+
+
+
+	if(this.map.has(val)){
+		let index = this.map.get(val)
+
+		let endValue = this.array[this.array.length-1]
+		this.map.set(endValue,index)
+		this.array[index] = endValue
+
+		this.map.delete(val)
+		this.array.pop()
+		return true
+	}
+	return false
 };
 
 /**
@@ -51,7 +76,8 @@ RandomizedSet.prototype.remove = function(val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
-	return this.dateBase[~~(Math.random()*this.dateBase.length)]
+	// return this.dateBase[~~(Math.random()*this.dateBase.length)]
+	return this.array[Math.random()*this.array.length|0]
 };
 
 /**

@@ -37,6 +37,16 @@
  * @return {boolean}
  */
 var canJump = function(nums) {
-    
+	let r=0,i=0
+	do{
+		let nr= i+nums[i]
+		r = r>nr?r:nr
+		i++
+	}while(r<nums.length-1 && i<=r)
+	return r>=nums.length-1
 };
-
+// test = [2,3,1,1,4]
+// test =  [3,2,1,0,4]
+// test = [0]
+// let res = canJump(test)
+// console.log(res)
